@@ -1,5 +1,6 @@
 install_audio() {
-  echo "🎧 Installing Audio Stack..."
-  sudo pacman -S --noconfirm --needed pipewire wireplumber ardour easyeffects
+  [[ "$AUDIO" == false ]] && return
+  color "🎧 Installing Audio Stack..."
+  sudo pacman -S --noconfirm --needed pipewire pipewire-pulse wireplumber ardour easyeffects carla helvum
+  log "Audio stack installed."
 }
-
